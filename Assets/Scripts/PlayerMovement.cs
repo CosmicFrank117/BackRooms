@@ -19,11 +19,10 @@ public class PlayerMovement : MonoBehaviour
 
     public float moveSpeed = 10f;
     public float lookSensitivity = 10f;
-    public float upperLookLimit = -65f;
-    public float lowerLookLimit = 70f;
-    private float verticalRotation;
-
-    bool canLook = true;
+    public float upperLookLimit = 30f;
+    public float lowerLookLimit = -30;
+    private float rotationX;
+    private float rotationY;
 
     private void Awake()
     {
@@ -58,11 +57,28 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        moveDirection = move.ReadValue<Vector2>();
-        lookDirection = look.ReadValue<Vector2>();
+        Look();
     }
 
     private void FixedUpdate()
+    {
+        Move();
+    }
+    private void Look()
+    {
+        moveDirection = move.ReadValue<Vector2>();
+        lookDirection = look.ReadValue<Vector2>();
+
+        rotationY += lookSensitivity * lookDirection.x;
+        rotationX -= lookSensitivity * lookDirection.y;
+
+        rotationX = Mathf.Clamp(rotationX, lowerLookLimit, upperLookLimit);
+
+        cam.transform.eulerAngles = new Vector3(rotationX, transform.eulerAngles.y, 0f);
+        transform.eulerAngles = new Vector3(0f, rotationY, 0f);
+    }
+
+    private void Move()
     {
         var forward = cam.transform.forward;
         var right = cam.transform.right;
@@ -77,11 +93,6 @@ public class PlayerMovement : MonoBehaviour
         var desiredMoveDirection = forward * moveDirection.y + right * moveDirection.x;
 
         rb.velocity = desiredMoveDirection * moveSpeed * Time.deltaTime;
-        transform.rotation *= Quaternion.Euler(0, lookDirection.x * lookSensitivity * Time.deltaTime, 0);
-
-        verticalRotation = Mathf.Clamp(-lookDirection.y, lowerLookLimit, upperLookLimit) * lookSensitivity * Time.deltaTime;
-        
-        cam.transform.rotation *= Quaternion.Euler(verticalRotation, 0, 0);
     }
 
     private void Fire(InputAction.CallbackContext context)
