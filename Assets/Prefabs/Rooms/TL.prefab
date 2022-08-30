@@ -745,6 +745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8409757504946178710}
   - component: {fileID: 3657950364873442910}
+  - component: {fileID: 5112282335322024466}
   m_Layer: 0
   m_Name: TL
   m_TagString: Untagged
@@ -788,6 +789,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfe50046c1ed5b4194353c2b6566e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5112282335322024466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8409757504946178705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7100f0599fef84db3bebc644b2ba4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomBounds: 6
+  maxObstacles: 10
 --- !u!1 &8409757505234491324
 GameObject:
   m_ObjectHideFlags: 0

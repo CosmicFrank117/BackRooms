@@ -335,6 +335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3544784662569983998}
   - component: {fileID: 4144463774135128524}
+  - component: {fileID: 7856434147781023558}
   m_Layer: 0
   m_Name: BRT
   m_TagString: Untagged
@@ -380,6 +381,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfe50046c1ed5b4194353c2b6566e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7856434147781023558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3544784662569983993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7100f0599fef84db3bebc644b2ba4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomBounds: 6
+  maxObstacles: 10
 --- !u!1 &3544784662850159316
 GameObject:
   m_ObjectHideFlags: 0

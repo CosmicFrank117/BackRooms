@@ -76,7 +76,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 1
-  waitTime: 4
 --- !u!1 &3623512329706731743
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3623512331104160280}
   - component: {fileID: 8533609867646683062}
+  - component: {fileID: 3002540257198116868}
   m_Layer: 0
   m_Name: TLBR
   m_TagString: Untagged
@@ -329,6 +329,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfe50046c1ed5b4194353c2b6566e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3002540257198116868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623512331104160287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7100f0599fef84db3bebc644b2ba4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomBounds: 6
+  maxObstacles: 10
 --- !u!1 &3623512331350529842
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +516,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 3
-  waitTime: 4
 --- !u!1 &4352178077445959488
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +592,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 4
-  waitTime: 4
 --- !u!1 &4403700526483821273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,7 +1168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 0
-  waitTime: 2
 --- !u!1 &6168618528396325964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,7 +1244,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 2
-  waitTime: 4
 --- !u!1 &7184872942407466142
 GameObject:
   m_ObjectHideFlags: 0
