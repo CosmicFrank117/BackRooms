@@ -13,7 +13,7 @@ public class Destroyer : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
 	{
-		if (other.name != "Plane")
+		if (other.name != "Floor" && other.name != "Player")
 		{
 			Destroy(other.gameObject);
 		}

@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 3
+  waitTime: 2
 --- !u!1 &2944892855905168293
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 4
+  waitTime: 2
 --- !u!1 &3998578137876109652
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,8 +707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d7100f0599fef84db3bebc644b2ba4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomBounds: 6
-  maxObstacles: 10
 --- !u!1 &4046931396615085247
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 5347770548180870007}
   - component: {fileID: 5347770548180870006}
   - component: {fileID: 5347770548180870005}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1075,3 +1075,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 1
+  waitTime: 2

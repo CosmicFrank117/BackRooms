@@ -226,28 +226,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5337967598558114953, guid: 6660a997c6a77174bb641365a3497d63, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 5337967598558114953, guid: 6660a997c6a77174bb641365a3497d63, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5337967598558114958, guid: 6660a997c6a77174bb641365a3497d63, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5337967598558114958, guid: 6660a997c6a77174bb641365a3497d63, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.5
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: 5337967598558114958, guid: 6660a997c6a77174bb641365a3497d63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 5337967598558114958, guid: 6660a997c6a77174bb641365a3497d63, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.1
+      value: -3.49
       objectReference: {fileID: 0}
     - target: {fileID: 5337967598558114958, guid: 6660a997c6a77174bb641365a3497d63, type: 3}
       propertyPath: m_LocalRotation.w
@@ -280,7 +276,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 6660a997c6a77174bb641365a3497d63, type: 3}
---- !u!1001 &919159405
+--- !u!1001 &1058367559
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -290,7 +286,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3623512331104160280, guid: c9a2dc6ed261d3c43aba0bd3990c0fdc, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3623512331104160280, guid: c9a2dc6ed261d3c43aba0bd3990c0fdc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -449,6 +445,8 @@ MonoBehaviour:
   - {fileID: 3033093807342029078, guid: 354f045875e42724fa18095a72aad9ae, type: 3}
   roomBounds: 0
   maxObstacles: 1
+  waitTime: 5
+  boss: {fileID: 6481013542420825980, guid: 50228f53d552f9e45834748920a1f531, type: 3}
 --- !u!4 &1217768519
 Transform:
   m_ObjectHideFlags: 0
@@ -464,7 +462,7 @@ Transform:
   - {fileID: 1700791044}
   - {fileID: 1201044093}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1700791043
 GameObject:

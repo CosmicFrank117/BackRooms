@@ -15,18 +15,53 @@ public class RoomTemplates : MonoBehaviour
     public GameObject[] leftRooms;
     public GameObject[] rightRooms;
 
-    [HideInInspector]
+    //[HideInInspector]
     public List<GameObject> rooms;
 
     //obstacles info
-
     public GameObject[] obstacles;
     public float roomBounds = 5f;
     public int maxObstacles = 3;
+
+    //boss info
+    public float waitTime;
+    public float newWaitTime;
+    private bool spawnedBoss;
+    private bool spawnedAllRooms = false;
+    public GameObject boss;
 
     private void Start()
     {
         instRooms = GameObject.FindGameObjectWithTag("RoomHolder");
         instObs = GameObject.FindGameObjectWithTag("ObstacleHolder");
+    }
+
+    private void Update()
+    {
+        while (waitTime > 0)
+        {
+            for (int i = 0; i < rooms.Count; i++)
+            {
+                print(i);
+            }
+            spawnedAllRooms = true;
+        }
+       
+        if (waitTime <= 0 && spawnedBoss == false)
+        {
+            
+            for (int j = 0; j < rooms.Count; j++)
+            { 
+                if (j == rooms.Count - 1)
+                {
+                    Instantiate(boss, rooms[j].transform.position, Quaternion.identity);
+                    spawnedBoss = true;
+                }
+            }
+        }
+        else
+        {
+            waitTime -= Time.deltaTime;
+        }
     }
 }

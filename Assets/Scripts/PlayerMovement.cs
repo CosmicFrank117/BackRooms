@@ -10,19 +10,30 @@ public class PlayerMovement : MonoBehaviour
     private InputAction move;
     private InputAction look;
     private InputAction fire;
+    private InputAction jump;
     
     private Rigidbody rb;
     private Camera cam;
+    private SphereCollider groundCheckerCollider;
+    private Collider[] colliders;
 
     Vector3 moveDirection;
     Vector3 lookDirection;
 
     public float moveSpeed = 10f;
+    public float jumpForce = 10f;
     public float lookSensitivity = 10f;
-    public float upperLookLimit = 30f;
-    public float lowerLookLimit = -30;
+    public float groundCheckDistance = 0.2f;
+    
+    private float upperLookLimit = 60f;
+    private float lowerLookLimit = -60f;
     private float rotationX;
     private float rotationY;
+
+    private Vector3 groundCheckerLocation;
+    private float groundCheckerSize;
+
+    private bool isGrounded;
 
     private void Awake()
     {
@@ -40,6 +51,10 @@ public class PlayerMovement : MonoBehaviour
         fire = playerControls.Player.Fire;
         fire.Enable();
         fire.performed += Fire;
+
+        jump = playerControls.Player.Jump;
+        jump.Enable();
+        jump.performed += Jump;
     }
 
     private void OnDisable()
@@ -53,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         cam = GetComponentInChildren<Camera>();
+        groundCheckerCollider = GetComponentInChildren<SphereCollider>();
     }
 
     void Update()
@@ -63,10 +79,14 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        
+        groundCheckerLocation = groundCheckerCollider.transform.position + new Vector3(0f, 0.39f, 0f);
+        groundCheckerSize = groundCheckerCollider.radius * 1.1f;
+        CheckGround();
     }
     private void Look()
     {
-        moveDirection = move.ReadValue<Vector2>();
+        
         lookDirection = look.ReadValue<Vector2>();
 
         rotationY += lookSensitivity * lookDirection.x;
@@ -80,19 +100,52 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        var forward = cam.transform.forward;
-        var right = cam.transform.right;
+        moveDirection = move.ReadValue<Vector2>();
+        Vector3 forward = cam.transform.forward;
+        Vector3 right = cam.transform.right;
+        Vector3 down = -transform.up;
 
         //project forward and right vectors on the horizontal plane (y = 0)
-        forward.y = 0f;
-        right.y = 0f;
+        forward.y = right.y = 0;
         forward.Normalize();
         right.Normalize();
+        down.Normalize();
 
         //this is the direction in the world space we want to move:
-        var desiredMoveDirection = forward * moveDirection.y + right * moveDirection.x;
+        Vector3 horizontalMove = (moveDirection.y * forward + moveDirection.x * right) * moveSpeed;
+        Vector3 veritcalMove = new Vector3(0f, rb.velocity.y, 0f) + down;
 
-        rb.velocity = desiredMoveDirection * moveSpeed * Time.deltaTime;
+        rb.velocity =  horizontalMove + veritcalMove;
+    }
+
+
+    private void CheckGround()
+    {
+        isGrounded = false;
+        int layerMask = LayerMask.GetMask("Ground");
+
+        colliders = Physics.OverlapSphere(groundCheckerLocation, groundCheckerSize, layerMask);
+        if (colliders.Length > 0)
+        {
+            isGrounded = true;
+        }
+    }
+
+    private void OnDrawGizmosSelected() 
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(groundCheckerLocation, groundCheckerSize);
+    }
+    
+
+    private void Jump(InputAction.CallbackContext context)
+    {
+        if (isGrounded)
+        {
+            print("Jumped");
+            Vector3 force = new Vector3(0.0f, jumpForce, 0.0f);
+            rb.AddForce(force, ForceMode.Impulse);
+        }
     }
 
     private void Fire(InputAction.CallbackContext context)
