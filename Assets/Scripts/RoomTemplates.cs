@@ -25,7 +25,7 @@ public class RoomTemplates : MonoBehaviour
 
     //boss info
     public float waitTime;
-    public float newWaitTime;
+    private float lastWaitTime;
     private bool spawnedBoss;
     private bool spawnedAllRooms = false;
     public GameObject boss;
@@ -34,31 +34,23 @@ public class RoomTemplates : MonoBehaviour
     {
         instRooms = GameObject.FindGameObjectWithTag("RoomHolder");
         instObs = GameObject.FindGameObjectWithTag("ObstacleHolder");
+        lastWaitTime = 0f;
     }
 
     private void Update()
     {
-        while (waitTime > 0)
-        {
-            for (int i = 0; i < rooms.Count; i++)
-            {
-                print(i);
-            }
-            spawnedAllRooms = true;
-        }
-       
         if (waitTime <= 0 && spawnedBoss == false)
         {
-            
+
             for (int j = 0; j < rooms.Count; j++)
-            { 
+            {
                 if (j == rooms.Count - 1)
                 {
                     Instantiate(boss, rooms[j].transform.position, Quaternion.identity);
                     spawnedBoss = true;
                 }
             }
-        }
+        }      
         else
         {
             waitTime -= Time.deltaTime;
