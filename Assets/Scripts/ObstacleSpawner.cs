@@ -13,8 +13,6 @@ public class ObstacleSpawner : MonoBehaviour
     private int numberOfObstacles;
     private int randObstacle;
 
-    private bool spawned = false;
-
     private void Start()
     {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();

@@ -25,16 +25,14 @@ public class RoomTemplates : MonoBehaviour
 
     //boss info
     public float waitTime;
-    private float lastWaitTime;
-    private bool spawnedBoss;
-    private bool spawnedAllRooms = false;
+    [HideInInspector]
+    public bool spawnedBoss;
     public GameObject boss;
 
     private void Start()
     {
         instRooms = GameObject.FindGameObjectWithTag("RoomHolder");
         instObs = GameObject.FindGameObjectWithTag("ObstacleHolder");
-        lastWaitTime = 0f;
     }
 
     private void Update()
