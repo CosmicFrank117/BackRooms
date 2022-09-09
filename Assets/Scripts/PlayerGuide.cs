@@ -24,11 +24,11 @@ public class PlayerGuide : MonoBehaviour
         if (templates.spawnedBoss)
         {
             bossLocation = GameObject.FindGameObjectWithTag("Boss").transform.position;
-            print(bossLocation);
+           // print(bossLocation);
 
             navMeshAgent.SetDestination(bossLocation);
         }
-        print(startingPosition);
+        //print(startingPosition);
     }
     private void OnTriggerEnter(Collider other)
     {

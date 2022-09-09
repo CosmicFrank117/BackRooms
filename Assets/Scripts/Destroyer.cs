@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Destroyer : MonoBehaviour
 {
-	public float waitTime = 2f;
+	private float waitTime = 10f;
 
     private void Start()
     {
@@ -13,7 +13,7 @@ public class Destroyer : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
 	{
-		if (other.name != "Floor" && other.name != "Player" && other.name != "PlayerGuide")
+		if (/*other.name != "Floor" && */ other.name != "Player" && other.name != "PlayerGuide")
 		{
 			Destroy(other.gameObject);
 		}
