@@ -13,13 +13,16 @@ public class RoomSpawner : MonoBehaviour
 
     private RoomTemplates templates;
     private Collider[] colliders;
+    [HideInInspector]
     public List<int> openingDirections; 
+    
+    
     private int numOfColliders;
     private int rand;
+    private float waitTime = 1f;
+    
     public bool spawned = false;
-    private bool isSP, isOtherRoomSpawned = false;
-
-    private float waitTime = 10f;
+    private bool isOtherRoomSpawned = false;
 
     private void Start()
     {
@@ -175,6 +178,20 @@ public class RoomSpawner : MonoBehaviour
 
                     case 4:
                         {
+                            List<int> TLBRvalues = new List<int> { 1, 2, 3, 4 };
+
+                            foreach (Collider collider in colliders)
+                            {
+                                if (collider.GetComponent<RoomSpawner>() == true)
+                                {
+                                    openingDirections.Add(collider.GetComponent<RoomSpawner>().openingDirection);
+                                }
+                            }
+                            if (openingDirections.OrderBy(x => x).SequenceEqual(TLBRvalues.OrderBy(x => x)))
+                            {
+                                Instantiate(templates.TLBR, transform.position, Quaternion.identity, templates.instRooms.transform);
+                            }
+
                             break;
                         }
 
@@ -183,43 +200,6 @@ public class RoomSpawner : MonoBehaviour
             }
             spawned = true;
         }
-
-        /*if (!spawned)
-        {
-            switch (openingDirection)
-            {
-                case 1:
-                    {
-                        //need to spawn room with BOTTOM door
-                        rand = Random.Range(0, templates.bottomRooms.Length);
-                        Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation, templates.instRooms.transform);
-                        break;
-                    }
-                case 2:
-                    {
-                        //need to spawn room with TOP door
-                        rand = Random.Range(0, templates.topRooms.Length);
-                        Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation, templates.instRooms.transform);
-                        break;
-                    }
-                case 3:
-                    {
-                        //need to spawn room with LEFT door
-                        rand = Random.Range(0, templates.leftRooms.Length);
-                        Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation, templates.instRooms.transform);
-                        break;
-                    }
-                case 4:
-                    {
-                        //need to spawn room with RIGHT door
-                        rand = Random.Range(0, templates.rightRooms.Length);
-                        Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation, templates.instRooms.transform);
-                        break;
-                    }
-            }
-            spawned = true;
-        }*/
-
     }
 
     private void OnDrawGizmosSelected()
@@ -228,67 +208,4 @@ public class RoomSpawner : MonoBehaviour
         Gizmos.DrawSphere(transform.position, 0.1f);
     }
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-
-        if (other.CompareTag("SpawnPoint"))
-        {
-            if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false)
-            {
-                *//*Instantiate(templates.closedRoom, transform.position, Quaternion.identity, templates.instRooms.transform);
-                Destroy(gameObject);*//*
-
-                if (other.GetComponentInChildren<RoomSpawner>().openingDirection == 1 && openingDirection == 3)
-                {
-                    Instantiate(templates.BL, transform.position, Quaternion.identity, templates.instRooms.transform);
-                    Destroy(gameObject);
-                }
-                else if (other.GetComponentInChildren<RoomSpawner>().openingDirection == 1 && openingDirection == 4)
-                {
-                    Instantiate(templates.BR, transform.position, Quaternion.identity, templates.instRooms.transform);
-                    Destroy(gameObject);
-                }
-                else if (other.GetComponentInChildren<RoomSpawner>().openingDirection == 2 && openingDirection == 3)
-                {
-                    Instantiate(templates.TL, transform.position, Quaternion.identity, templates.instRooms.transform);
-                    Destroy(gameObject);
-                }
-                else if (other.GetComponentInChildren<RoomSpawner>().openingDirection == 2 && openingDirection == 4)
-                {
-                    Instantiate(templates.TR, transform.position, Quaternion.identity, templates.instRooms.transform);
-                    Destroy(gameObject);
-                }
-                else if (other.GetComponentInChildren<RoomSpawner>().openingDirection == 3 && openingDirection == 1)
-                {
-                    Instantiate(templates.BL, transform.position, Quaternion.identity, templates.instRooms.transform);
-                    Destroy(gameObject);
-                }
-                else if (other.GetComponentInChildren<RoomSpawner>().openingDirection == 3 && openingDirection == 2)
-                {
-                    Instantiate(templates.TL, transform.position, Quaternion.identity, templates.instRooms.transform);
-                    Destroy(gameObject);
-                }
-                else if (other.GetComponentInChildren<RoomSpawner>().openingDirection == 4 && openingDirection == 1)
-                {
-                    Instantiate(templates.BR, transform.position, Quaternion.identity, templates.instRooms.transform);
-                    Destroy(gameObject);
-                }
-                else if (other.GetComponentInChildren<RoomSpawner>().openingDirection == 4 && openingDirection == 2)
-                {
-                    Instantiate(templates.TR, transform.position, Quaternion.identity, templates.instRooms.transform);
-                    Destroy(gameObject);
-                }
-
-                else if (other.GetComponentInChildren<RoomSpawner>().openingDirection == 1 && other.GetComponentInChildren<RoomSpawner>().openingDirection == 2 && openingDirection == 3)
-                {
-                    Instantiate(templates.TLB, transform.position, Quaternion.identity, templates.instRooms.transform);
-                    Destroy(gameObject);
-                }
-               
-             
-
-             }
-             spawned = true;
-        }
-    }*/
 }

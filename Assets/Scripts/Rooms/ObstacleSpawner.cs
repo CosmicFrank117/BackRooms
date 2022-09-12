@@ -25,7 +25,7 @@ public class ObstacleSpawner : MonoBehaviour
     {
         numberOfObstacles = Random.Range(0, maxObstacles);
 
-        for (int i = 0; i <= numberOfObstacles; i++)
+        for (int i = 0; i < numberOfObstacles; i++)
         {
             randObstacle = Random.Range(0, templates.obstacles.Length);
             positionInRoom = transform.position + new Vector3(Random.Range(-roomBounds, roomBounds), 0, Random.Range(-roomBounds, roomBounds));

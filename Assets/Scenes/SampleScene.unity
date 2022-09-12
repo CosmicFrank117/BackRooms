@@ -679,6 +679,7 @@ MonoBehaviour:
   LBR: {fileID: 202586268128133380, guid: c6d9aab9dd8982e4ab65e21667f4832f, type: 3}
   RTL: {fileID: 4046931396358128018, guid: fe2e6be57ebff304a9bc000878bff78d, type: 3}
   TLB: {fileID: 3160432249859881665, guid: 37be2e4dd07350341b5f570667350939, type: 3}
+  TLBR: {fileID: 3623512331104160287, guid: c9a2dc6ed261d3c43aba0bd3990c0fdc, type: 3}
   bottomRooms:
   - {fileID: 3123891122397448414, guid: 403a9ccc76e568643b213d72a435674b, type: 3}
   - {fileID: 3123891122397448414, guid: 403a9ccc76e568643b213d72a435674b, type: 3}
@@ -691,6 +692,7 @@ MonoBehaviour:
   - {fileID: 1505918457373385910, guid: 9f36b2b1f812bd24981d1d885204451a, type: 3}
   - {fileID: 6206425802437507489, guid: dd152820cf1f64548a28370363052a90, type: 3}
   - {fileID: 3623512331104160287, guid: c9a2dc6ed261d3c43aba0bd3990c0fdc, type: 3}
+  - {fileID: 3544784662569983993, guid: 0f1e8c5c83035b14398e6bdee1ab29f1, type: 3}
   topRooms:
   - {fileID: 4373423999423402768, guid: 0f123cf07c948424ba29ea02e46597e5, type: 3}
   - {fileID: 4373423999423402768, guid: 0f123cf07c948424ba29ea02e46597e5, type: 3}
@@ -702,6 +704,7 @@ MonoBehaviour:
   - {fileID: 8409757504946178705, guid: aa49af1f685816445be09a16cb0d8758, type: 3}
   - {fileID: 8409757504946178705, guid: aa49af1f685816445be09a16cb0d8758, type: 3}
   - {fileID: 3623512331104160287, guid: c9a2dc6ed261d3c43aba0bd3990c0fdc, type: 3}
+  - {fileID: 3160432249859881665, guid: 37be2e4dd07350341b5f570667350939, type: 3}
   leftRooms:
   - {fileID: 480235048338325143, guid: feb7e5c964215df41b1e454a64e2049a, type: 3}
   - {fileID: 480235048338325143, guid: feb7e5c964215df41b1e454a64e2049a, type: 3}
@@ -713,6 +716,7 @@ MonoBehaviour:
   - {fileID: 8409757504946178705, guid: aa49af1f685816445be09a16cb0d8758, type: 3}
   - {fileID: 8409757504946178705, guid: aa49af1f685816445be09a16cb0d8758, type: 3}
   - {fileID: 3623512331104160287, guid: c9a2dc6ed261d3c43aba0bd3990c0fdc, type: 3}
+  - {fileID: 202586268128133380, guid: c6d9aab9dd8982e4ab65e21667f4832f, type: 3}
   rightRooms:
   - {fileID: 5964797294788481822, guid: 0a87fd65751c2524195f1ab1a802e649, type: 3}
   - {fileID: 5964797294788481822, guid: 0a87fd65751c2524195f1ab1a802e649, type: 3}
@@ -724,12 +728,13 @@ MonoBehaviour:
   - {fileID: 4373423999423402768, guid: 0f123cf07c948424ba29ea02e46597e5, type: 3}
   - {fileID: 4373423999423402768, guid: 0f123cf07c948424ba29ea02e46597e5, type: 3}
   - {fileID: 3623512331104160287, guid: c9a2dc6ed261d3c43aba0bd3990c0fdc, type: 3}
+  - {fileID: 4046931396358128018, guid: fe2e6be57ebff304a9bc000878bff78d, type: 3}
   rooms: []
   obstacles:
   - {fileID: 4472411411328243311, guid: 905c064b24b92a54c823c5f358a7e71d, type: 3}
   - {fileID: 3033093807342029078, guid: 354f045875e42724fa18095a72aad9ae, type: 3}
   roomBounds: 0
-  maxObstacles: 1
+  maxObstacles: 0
   waitTime: 1
   spawnedBoss: 0
   boss: {fileID: 6481013542420825980, guid: 50228f53d552f9e45834748920a1f531, type: 3}
