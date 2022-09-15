@@ -9,7 +9,7 @@ public class KeyItem : MonoBehaviour
 
     private void Start()
     {
-        keyTracker = GameObject.FindGameObjectWithTag("KeyTracker").GetComponent<KeyTracker>();
+        keyTracker = GameObject.FindGameObjectWithTag("Player").GetComponent<KeyTracker>();
     }
 
     private void OnCollisionEnter(Collision collision)

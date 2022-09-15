@@ -7,13 +7,16 @@ public class PlayerGuide : MonoBehaviour
 {
     public float deathDelay = 0.2f;
 
+    private Vector3 playerPosition;
     private RoomTemplates templates;
     private NavMeshAgent navMeshAgent;
+
     private Vector3 startingPosition;
     private Vector3 bossLocation;
     
     private void Start()
     {
+        playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         startingPosition = transform.position;
@@ -21,6 +24,7 @@ public class PlayerGuide : MonoBehaviour
 
     private void Update()
     {
+
         if (templates.spawnedBoss)
         {
             bossLocation = GameObject.FindGameObjectWithTag("Boss").transform.position;
@@ -34,8 +38,10 @@ public class PlayerGuide : MonoBehaviour
     {
         if(other.tag == "Boss")
         {
-            Instantiate(this, startingPosition, Quaternion.identity).name = this.name;
+            Instantiate(this, playerPosition, Quaternion.identity).name = this.name;
             Invoke("Destroy", deathDelay);
+
+            //navMeshAgent.SetDestination(startingPosition);
         }
     }
 

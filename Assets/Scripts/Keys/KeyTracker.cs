@@ -5,10 +5,13 @@ using UnityEngine;
 public class KeyTracker : MonoBehaviour
 {
     public GameObject keyItemPrefab;
+    public GameObject keyHolder;
+    public GameObject playerGuide;
     private RoomTemplates templates;
     
     public int keysToCollect;
     public int collectedKeys = 0;
+    public bool isGuideSpawned = false;
 
     private int roomNumber;
     private bool spawnedKeys = false;
@@ -20,6 +23,8 @@ public class KeyTracker : MonoBehaviour
 
     private void Update()
     {
+        print(collectedKeys);
+
         if (templates.spawnedBoss)
         {
             keysToCollect = templates.rooms.Count / 5;
@@ -35,10 +40,28 @@ public class KeyTracker : MonoBehaviour
                     {
                         roomNumber = 1;
                     }
-                    Instantiate(keyItemPrefab, templates.rooms[roomNumber].transform.position, Quaternion.identity, this.transform);
+                    Instantiate(keyItemPrefab, templates.rooms[roomNumber].transform.position, Quaternion.identity, keyHolder.transform);
                 }
                 spawnedKeys = true;
+                
             }
+
+            if (collectedKeys == keysToCollect)
+            {
+                if (!isGuideSpawned)
+                {
+                    SpawnPlayerGuide();
+                    isGuideSpawned = true;
+                }
+            }
+
         }
+       
+        
+    }
+
+    private void SpawnPlayerGuide()
+    {
+        Instantiate(playerGuide, transform.position, Quaternion.identity);
     }
 }

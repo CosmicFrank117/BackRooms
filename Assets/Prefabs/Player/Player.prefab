@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5337967598558114958}
-  - component: {fileID: 5337967598558114946}
   - component: {fileID: 5337967598558114956}
   - component: {fileID: 1789796098288318369}
+  - component: {fileID: 5337967598558114946}
+  - component: {fileID: 6117933893027238200}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -34,24 +35,8 @@ Transform:
   - {fileID: 5337967599256224926}
   - {fileID: 5884211472334190750}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5337967598558114946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5337967598558114953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82d8801ba44680c4184775b04a7658fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  jumpForce: 15
-  lookSensitivity: 8
-  groundCheckDistance: 0.2
 --- !u!54 &5337967598558114956
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -82,6 +67,38 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1.1, z: 0}
+--- !u!114 &5337967598558114946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337967598558114953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d8801ba44680c4184775b04a7658fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  jumpForce: 15
+  lookSensitivity: 8
+  groundCheckDistance: 0.2
+--- !u!114 &6117933893027238200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337967598558114953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1047447fb186fbb44b251f490a71227e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyItemPrefab: {fileID: 4647652270298607700, guid: 8d73c0eeec2bbf94195d48fc716da303, type: 3}
+  keysToCollect: 0
+  collectedKeys: 0
+  allKeysCollected: 0
 --- !u!1 &5337967599256224923
 GameObject:
   m_ObjectHideFlags: 0

@@ -39,7 +39,7 @@ public class RoomSpawner : MonoBehaviour
 
             foreach (Collider collider in colliders)
             {
-                print(collider);
+                //print(collider);
                 if (collider.GetComponent<RoomSpawner>() == true)
                 {
                     numOfColliders = colliders.Length;
