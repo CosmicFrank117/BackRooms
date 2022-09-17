@@ -16,7 +16,7 @@ public class PlayerGuide : MonoBehaviour
     
     private void Start()
     {
-        playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+        
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         startingPosition = transform.position;
@@ -24,7 +24,7 @@ public class PlayerGuide : MonoBehaviour
 
     private void Update()
     {
-
+        playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
         if (templates.spawnedBoss)
         {
             bossLocation = GameObject.FindGameObjectWithTag("Boss").transform.position;

@@ -19,7 +19,7 @@ public class RoomSpawner : MonoBehaviour
     
     private int numOfColliders;
     private int rand;
-    private float waitTime = 1f;
+    private float waitTime = 10f;
     
     public bool spawned = false;
     private bool isOtherRoomSpawned = false;
@@ -98,12 +98,12 @@ public class RoomSpawner : MonoBehaviour
 
                     case 2:
                         {
-                            List<int> TLvalues = new List<int> { 1, 3 };
+                            List<int> BLvalues = new List<int> { 1, 3 };
                             List<int> TBvalues = new List<int> { 1, 2 };
-                            List<int> RTvalues = new List<int> { 1, 4 };
+                            List<int> BRvalues = new List<int> { 1, 4 };
                             List<int> LRvalues = new List<int> { 3, 4 };
-                            List<int> LBvalues = new List<int> { 2, 3 };
-                            List<int> BRvalues = new List<int> { 2, 4 };
+                            List<int> TLvalues = new List<int> { 2, 3 };
+                            List<int> TRvalues = new List<int> { 2, 4 };
 
                             foreach (Collider collider in colliders)
                             {
@@ -115,27 +115,39 @@ public class RoomSpawner : MonoBehaviour
 
                             if (openingDirections.OrderBy(x => x).SequenceEqual(TLvalues.OrderBy(x => x)))
                             {
-                                Instantiate(templates.TL, transform.position, Quaternion.identity, templates.instRooms.transform);
+                                List<GameObject> TLRooms = new List<GameObject> { templates.TL, templates.TLB, templates.RTL, templates.TLBR };
+                                rand = Random.Range(0, TLRooms.Count);
+                                Instantiate(TLRooms[rand], transform.position, Quaternion.identity, templates.instRooms.transform);
                             }
                             else if (openingDirections.OrderBy(x => x).SequenceEqual(TBvalues.OrderBy(x => x)))
                             {
-                                Instantiate(templates.TB, transform.position, Quaternion.identity, templates.instRooms.transform);
+                                List<GameObject> TBRooms = new List<GameObject> { templates.TB, templates.TLB, templates.BRT, templates.TLBR };
+                                rand = Random.Range(0, TBRooms.Count);
+                                Instantiate(TBRooms[rand], transform.position, Quaternion.identity, templates.instRooms.transform);
                             }
-                            else if (openingDirections.OrderBy(x => x).SequenceEqual(RTvalues.OrderBy(x => x)))
+                            else if (openingDirections.OrderBy(x => x).SequenceEqual(TRvalues.OrderBy(x => x)))
                             {
-                                Instantiate(templates.RTL, transform.position, Quaternion.identity, templates.instRooms.transform);
+                                List<GameObject> TRRooms = new List<GameObject> { templates.TR, templates.RTL, templates.BRT, templates.TLBR };
+                                rand = Random.Range(0, TRRooms.Count);
+                                Instantiate(TRRooms[rand], transform.position, Quaternion.identity, templates.instRooms.transform);
                             }
                             else if (openingDirections.OrderBy(x => x).SequenceEqual(LRvalues.OrderBy(x => x)))
                             {
-                                Instantiate(templates.LR, transform.position, Quaternion.identity, templates.instRooms.transform);
+                                List<GameObject> LRRooms = new List<GameObject> { templates.LR, templates.RTL, templates.LBR, templates.TLBR };
+                                rand = Random.Range(0, LRRooms.Count);
+                                Instantiate(LRRooms[rand], transform.position, Quaternion.identity, templates.instRooms.transform);
                             }
-                            else if (openingDirections.OrderBy(x => x).SequenceEqual(LBvalues.OrderBy(x => x)))
+                            else if (openingDirections.OrderBy(x => x).SequenceEqual(BLvalues.OrderBy(x => x)))
                             {
-                                Instantiate(templates.BL, transform.position, Quaternion.identity, templates.instRooms.transform);
+                                List<GameObject> BLRooms = new List<GameObject> { templates.BL, templates.TLB, templates.LBR, templates.TLBR };
+                                rand = Random.Range(0, BLRooms.Count);
+                                Instantiate(BLRooms[rand], transform.position, Quaternion.identity, templates.instRooms.transform);
                             }
                             else if (openingDirections.OrderBy(x => x).SequenceEqual(BRvalues.OrderBy(x => x)))
                             {
-                                Instantiate(templates.BR, transform.position, Quaternion.identity, templates.instRooms.transform);
+                                List<GameObject> BRRooms = new List<GameObject> { templates.BR, templates.BRT, templates.LBR, templates.TLBR };
+                                rand = Random.Range(0, BRRooms.Count);
+                                Instantiate(BRRooms[rand], transform.position, Quaternion.identity, templates.instRooms.transform);
                             }
 
                             break;
