@@ -49,6 +49,7 @@ public class RoomTemplates : MonoBehaviour
                 {
                     Instantiate(boss, rooms[j].transform.position, Quaternion.identity);
                     spawnedBoss = true;
+                    rooms[j].tag = "LastRoom";
                 }
             }
         }      

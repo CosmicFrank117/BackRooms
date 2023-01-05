@@ -12,7 +12,7 @@ public class PlayerGuide : MonoBehaviour
     private NavMeshAgent navMeshAgent;
 
     private Vector3 startingPosition;
-    private Vector3 bossLocation;
+    private Vector3 exitLocation;
     
     private void Start()
     {
@@ -27,22 +27,25 @@ public class PlayerGuide : MonoBehaviour
         playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
         if (templates.spawnedBoss)
         {
-            bossLocation = GameObject.FindGameObjectWithTag("Boss").transform.position;
+            exitLocation = GameObject.FindGameObjectWithTag("LastRoom").transform.position;
            // print(bossLocation);
 
-            navMeshAgent.SetDestination(bossLocation);
+            navMeshAgent.SetDestination(exitLocation);
         }
         //print(startingPosition);
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Boss")
+        if(other.tag == "LastRoom")
         {
+
             Instantiate(this, playerPosition, Quaternion.identity).name = this.name;
             Invoke("Destroy", deathDelay);
 
             //navMeshAgent.SetDestination(startingPosition);
         }
+
+        
     }
 
     private void Destroy()

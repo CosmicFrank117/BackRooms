@@ -1537,6 +1537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6206425802437507494}
   - component: {fileID: 782302118562142212}
+  - component: {fileID: -2703185966556997559}
   m_Layer: 0
   m_Name: B_Stair_Up
   m_TagString: Untagged
@@ -1586,6 +1587,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfe50046c1ed5b4194353c2b6566e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &-2703185966556997559
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6206425802437507489}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6206425802666960012
 GameObject:
   m_ObjectHideFlags: 0

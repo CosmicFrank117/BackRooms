@@ -82,7 +82,7 @@ Transform:
   - {fileID: 5884211472334190750}
   - {fileID: 2282706086709679244}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5337967598558114956
 Rigidbody:
@@ -127,6 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  sprintSpeedMultiplier: 1.5
+  maxSprintTime: 5
+  sprintCooldown: 3
   jumpForce: 15
   lookSensitivity: 8
   groundCheckDistance: 0.2
@@ -144,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyItemPrefab: {fileID: 4647652270298607700, guid: 8d73c0eeec2bbf94195d48fc716da303, type: 3}
   keyHolder: {fileID: 0}
-  playerGuide: {fileID: 0}
+  playerGuide: {fileID: 2626693231554675627, guid: 49c2102d59204ba46845091e87a342d9, type: 3}
   keysToCollect: 0
   collectedKeys: 0
   isGuideSpawned: 0
